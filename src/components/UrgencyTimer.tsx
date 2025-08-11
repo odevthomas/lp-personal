@@ -7,20 +7,9 @@ import {
   Users,
   MessageCircle,
 } from "lucide-react";
-import bgImage from "@/assets/cta.png";
+import bgImage from "@/assets/cta.png"; // Substitua pelo caminho correto
 
 const UrgencyTimer = () => {
-  const [offsetY, setOffsetY] = useState(0);
-
-  // Parallax scroll handler
-  useEffect(() => {
-    const handleScroll = () => {
-      setOffsetY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const [timeLeft, setTimeLeft] = useState({
     days: 7,
     hours: 23,
@@ -64,118 +53,115 @@ const UrgencyTimer = () => {
   };
 
   return (
-    <section className="relative overflow-hidden text-white min-h-screen flex items-center justify-center px-4">
-      {/* Efeito parallax na imagem de fundo */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-300 ease-linear"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-          transform: `translateY(${offsetY * 0.3}px)`,
-          willChange: "transform",
-        }}
-      />
+    <section
+      className="section-padding relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      {/* Overlay escurecido com gradiente */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/80"></div>
 
-      {/* Gradiente escurecido */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/80 z-0" />
-
-      {/* Pattern decorativo */}
-      <div className="absolute inset-0 opacity-10 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent)]" />
+      {/* Pattern decorativo opcional */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent)]"></div>
       </div>
 
-      {/* Conteúdo principal */}
-      <div className="container-max relative z-10 text-center max-w-4xl py-20">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 mb-8">
-          <Users className="w-5 h-5" />
-          <span className="text-sm font-medium">Oferta Limitada</span>
-        </div>
-
-        {/* Título */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
-          Vagas limitadas para{" "}
-          <span className="text-primary-glow">Fevereiro</span>
-        </h2>
-
-        <p className="text-xl md:text-2xl mb-12 text-white/90">
-          Apenas 3 atendimentos disponíveis por semana
-        </p>
-
-        {/* Temporizador */}
-        <div className="grid grid-cols-4 gap-4 md:gap-8 max-w-2xl mx-auto mb-12">
-          {[
-            { label: "Dias", value: timeLeft.days },
-            { label: "Horas", value: timeLeft.hours },
-            { label: "Min", value: timeLeft.minutes },
-            { label: "Seg", value: timeLeft.seconds },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 animate-pulse-glow"
-            >
-              <div className="text-2xl md:text-4xl font-bold font-display">
-                {item.value.toString().padStart(2, "0")}
-              </div>
-              <div className="text-sm md:text-base text-white/80 font-medium">
-                {item.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Features */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {[
-            {
-              icon: AlarmClock,
-              title: "Acompanhamento 24/7",
-              description: "Suporte constante via WhatsApp",
-            },
-            {
-              icon: ShieldCheck,
-              title: "Grupo Exclusivo",
-              description: "Acesso à comunidade VIP",
-            },
-            {
-              icon: Headphones,
-              title: "Consultas Ilimitadas",
-              description: "Tire dúvidas quando quiser",
-            },
-          ].map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
-            >
-              <feature.icon className="w-8 h-8 text-primary-glow mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
-              <p className="text-sm text-white/80">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Botão CTA */}
-        <Button
-          onClick={handleUrgencyClick}
-          size="lg"
-          className="bg-white text-secondary hover:bg-white/90 font-bold text-lg md:text-xl px-8 py-4 animate-bounce-gentle"
-        >
-          <MessageCircle className="w-6 h-6 mr-3" />
-          Garantir minha vaga agora
-        </Button>
-
-        {/* Prova social */}
-        <div className="mt-8 flex flex-wrap justify-center items-center gap-6 text-white/70">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-sm">João acabou de se inscrever</span>
+      {/* Conteúdo */}
+      <div className="container-max relative z-10">
+        <div className="max-w-4xl mx-auto text-center text-primary-foreground">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 mb-8">
+            <Users className="w-5 h-5" />
+            <span className="text-sm font-medium">Oferta Limitada</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-sm">Maria garantiu sua vaga</span>
+
+          {/* Headline */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 animate-fade-in">
+            Vagas limitadas para{" "}
+            <span className="text-primary-glow">Fevereiro</span>
+          </h2>
+
+          <p className="text-xl md:text-2xl mb-12 text-primary-foreground/90">
+            Apenas 3 atendimentos disponíveis por semana
+          </p>
+
+          {/* Timer */}
+          <div className="grid grid-cols-4 gap-4 md:gap-8 max-w-2xl mx-auto mb-12">
+            {[
+              { label: "Dias", value: timeLeft.days },
+              { label: "Horas", value: timeLeft.hours },
+              { label: "Min", value: timeLeft.minutes },
+              { label: "Seg", value: timeLeft.seconds },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 animate-pulse-glow"
+              >
+                <div className="text-2xl md:text-4xl font-bold font-display">
+                  {item.value.toString().padStart(2, "0")}
+                </div>
+                <div className="text-sm md:text-base text-primary-foreground/80 font-medium">
+                  {item.label}
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-            <span className="text-sm">Apenas 1 vaga restante</span>
+
+          {/* Features com ícones novos */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                icon: AlarmClock,
+                title: "Acompanhamento 24/7",
+                description: "Suporte constante via WhatsApp",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Grupo Exclusivo",
+                description: "Acesso à comunidade VIP",
+              },
+              {
+                icon: Headphones,
+                title: "Consultas Ilimitadas",
+                description: "Tire dúvidas quando quiser",
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+              >
+                <feature.icon className="w-8 h-8 text-primary-glow mx-auto mb-4" />
+                <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
+                <p className="text-sm text-primary-foreground/80">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <Button
+            onClick={handleUrgencyClick}
+            size="lg"
+            className="bg-white text-secondary hover:bg-white/90 font-bold text-lg md:text-xl px-8 py-4 animate-bounce-gentle"
+          >
+            <MessageCircle className="w-6 h-6 mr-3" />
+            Garantir minha vaga agora
+          </Button>
+
+          {/* Social Proof */}
+          <div className="mt-8 flex flex-wrap justify-center items-center gap-6 text-primary-foreground/70">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-sm">João acabou de se inscrever</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-sm">Maria garantiu sua vaga</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+              <span className="text-sm">Apenas 1 vaga restante</span>
+            </div>
           </div>
         </div>
       </div>
