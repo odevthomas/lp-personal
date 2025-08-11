@@ -24,14 +24,20 @@ const Benefits = () => {
     }
   ];
 
+  const avatars = [
+    "https://randomuser.me/api/portraits/women/65.jpg",
+    "https://randomuser.me/api/portraits/men/32.jpg",
+    "https://randomuser.me/api/portraits/women/22.jpg"
+  ];
+
   return (
     <section className="section-padding bg-background">
       <div className="container-max">
+        
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-            O que você{" "}
-            <span className="gradient-text">ganha</span>
+            O que você <span className="gradient-text">ganha</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Cada detalhe pensado para maximizar seus resultados
@@ -73,12 +79,17 @@ const Benefits = () => {
         <div className="text-center mt-16 animate-fade-in">
           <div className="inline-flex items-center gap-3 bg-muted/50 rounded-full px-6 py-3 border border-border/50">
             <div className="flex -space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-full border-2 border-background"></div>
-              <div className="w-8 h-8 bg-gradient-primary rounded-full border-2 border-background"></div>
-              <div className="w-8 h-8 bg-gradient-primary rounded-full border-2 border-background"></div>
+              {avatars.map((url, index) => (
+                <img
+                  key={index}
+                  src={url}
+                  alt={`Usuário ${index + 1}`}
+                  className="w-8 h-8 rounded-full border-2 border-background object-cover"
+                />
+              ))}
             </div>
             <span className="text-sm font-medium text-foreground">
-              Junte-se a mais de 500 pessoas transformadas
+              Junte-se a mais de <strong>500 pessoas transformadas</strong>
             </span>
           </div>
         </div>
