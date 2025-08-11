@@ -1,6 +1,8 @@
 # PowerService - Landing Page
 
 Essa é uma landing page feita rapidão pra ajudar profissionais a captar clientes na internet.
+<img width="1681" height="937" alt="image" src="https://github.com/user-attachments/assets/e1d65a00-fe3c-4275-87a6-8359245d17ec" />
+
 
 ## O que tem aqui?
 
