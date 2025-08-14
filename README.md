@@ -1,29 +1,29 @@
-# PowerService - Landing Page
+# TransformaFit - Landing Page de Personal Trainer
 
-Essa é uma landing page feita rapidão pra ajudar profissionais a captar clientes na internet.
-<img width="1681" height="937" alt="image" src="https://github.com/user-attachments/assets/e1d65a00-fe3c-4275-87a6-8359245d17ec" />
+TransformaFit é uma landing page moderna criada para personal trainers. O objetivo do projeto é apresentar de forma clara e visual os serviços de treinamento personalizado, acompanhamento e resultados obtidos pelos clientes.
 
+---
 
-## O que tem aqui?
+## Funcionalidades
 
-- Layout responsivo que funciona bem no celular e no PC  
-- Fundo com efeito parallax (aquele que mexe quando você rola a página)  
-- Contador regressivo pra dar aquele senso de urgência  
-- Botões pra abrir WhatsApp direto e facilitar o contato  
-- Ícones bonitinhos e texto claro pra vender sua ideia  
+- **Seção Hero**: destaque visual com título impactante e efeito de parallax.
+- **Lista de benefícios**: apresenta os principais diferenciais do serviço de forma clara.
+- **Depoimentos**: mostra histórias reais de transformação.
+- **Indicadores de confiança**: estatísticas resumidas para reforçar credibilidade.
+- **Layout responsivo**: adequado para celulares, tablets e desktops.
+- **Foco em SEO e performance**: otimizado para carregamento rápido e indexação.
 
-## Como rodar
+---
 
-1. Clone o projeto  
-2. Rode `npm install`  
-3. Depois `npm run dev`  
-4. Abra o navegador em http://localhost:5173
+## Tecnologias Utilizadas
 
-## Dá pra mexer fácil
+- **React.js** – para estrutura do site.
+- **Tailwind CSS** – para estilização moderna e responsiva.
+- **TypeScript** – garantindo tipagem e segurança no código.
+- **Lucide Icons** – para ícones limpos e leves.
 
-Quer trocar texto, imagem, cores? Só mudar nos arquivos que estão na pasta `src`. É tudo React + Tailwind, tranquilo de entender.
+---
 
-## Deploy
+## Objetivo do Projeto
 
-Suba no Netlify, Vercel ou qualquer lugar que aceite React, é só mandar o build (`npm run build`).
-
+O projeto foi desenvolvido como exemplo de **landing page focada em conversão**, combinando design visual atrativo, clareza de informações e boas práticas de performance e SEO.
